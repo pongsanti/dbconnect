@@ -26,13 +26,13 @@ func NewDBConnect(host string, dbname string, user string, password string, opti
 
 	db, err := sql.Open("postgres", connectionString)
 	if err != nil {
-		log.Fatal("Error connecting to database!")
+		log.Print("Error connecting to database!", err)
 		return nil, err
 	}
 
 	err = db.Ping()
 	if err != nil {
-		log.Fatal("Cannot connect to the database!")
+		log.Print("Cannot connect to the database!", err)
 		return nil, err
 	}
 
